@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚀 Smart Resume Analyzer</h1>
+
+    <p>
+        Upload your resume and receive AI-powered ATS analysis,
+        resume score, skill gap detection and personalized feedback.
+    </p>
+
+    <div class="upload-box">
+
+        <h2>Upload Resume</h2>
+
+        <form action="/analyze"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required>
+
+            <br><br>
+
+            <select name="role" required>
+
+                <option value="">Select Job Role</option>
+
+                <option>AI Engineer</option>
+
+                <option>Web Developer</option>
+
+                <option>Data Analyst</option>
+
+                <option>Cloud Engineer</option>
+
+            </select>
+
+            <br><br>
+
+            <button type="submit">
+
+                Analyze Resume
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
