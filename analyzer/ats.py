@@ -1,3 +1,36 @@
+SKILL_ALIASES = {
+    "python": ["python", "python3"],
+    "machine learning": ["machine learning", "ml"],
+    "tensorflow": ["tensorflow", "tensor flow"],
+    "pytorch": ["pytorch", "torch"],
+    "opencv": ["opencv", "open cv"],
+    "sql": ["sql", "mysql", "postgresql"],
+    "flask": ["flask"],
+    "git": ["git", "github"],
+    "numpy": ["numpy"],
+    "pandas": ["pandas"],
+
+    "html": ["html", "html5"],
+    "css": ["css", "css3"],
+    "javascript": ["javascript", "js"],
+    "react": ["react", "reactjs"],
+    "node": ["node", "nodejs", "node.js"],
+    "express": ["express", "expressjs"],
+    "mongodb": ["mongodb", "mongo"],
+
+    "excel": ["excel", "ms excel"],
+    "power bi": ["power bi", "powerbi"],
+    "tableau": ["tableau"],
+    "matplotlib": ["matplotlib"],
+
+    "aws": ["aws", "amazon web services"],
+    "azure": ["azure", "microsoft azure"],
+    "docker": ["docker", "container"],
+    "kubernetes": ["kubernetes", "k8s"],
+    "linux": ["linux", "ubuntu"]
+}
+
+
 JOB_SKILLS = {
 
     "AI Engineer": [
@@ -54,17 +87,27 @@ def calculate_ats_score(text, role):
 
     required_skills = JOB_SKILLS.get(role, [])
 
-    matched = []
+    matched = set()
 
     missing = []
 
     for skill in required_skills:
 
-        if skill.lower() in text:
+        aliases = SKILL_ALIASES.get(skill, [skill])
 
-            matched.append(skill)
+        found = False
 
-        else:
+        for alias in aliases:
+
+            if alias.lower() in text:
+
+                matched.add(skill)
+
+                found = True
+
+                break
+
+        if not found:
 
             missing.append(skill)
 
@@ -76,4 +119,4 @@ def calculate_ats_score(text, role):
 
         score = int((len(matched) / len(required_skills)) * 100)
 
-    return score, matched, missing
+    return score, sorted(list(matched)), missing

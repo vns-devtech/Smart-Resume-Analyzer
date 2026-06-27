@@ -209,3 +209,114 @@ button:hover{
 
     font-family:Consolas, monospace;
 }
+
+textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    resize:vertical;
+
+    font-size:15px;
+
+    margin-top:10px;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    width:100%;
+
+    background:#1e3a8a;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 40px;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    z-index:1000;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#ffd700;
+
+}
+
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    margin-top:100px;
+
+}
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+button{
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}

@@ -16,6 +16,24 @@
 
 <body>
 
+<nav class="navbar">
+
+    <div class="logo">
+        🚀 Smart Resume Analyzer
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/download-report">
+            Download Report
+        </a>
+
+    </div>
+
+</nav>
+
 <div class="container">
 
     <h1>🎉 Resume Analysis Complete</h1>
@@ -63,6 +81,20 @@
         <h2>Selected Role</h2>
 
         <p>{{ role }}</p>
+
+        {% if job_description %}
+
+        <hr>
+
+        <h2>Job Description Used</h2>
+
+        <div class="resume-box">
+
+        <pre>{{ job_description }}</pre>
+
+        </div>
+
+        {% endif %}
 
     </div>
 
@@ -190,6 +222,17 @@
 
     <br>
 
+
+    <br><br>
+
+    <a href="/download-report">
+        <button type="button">
+            📥 Download PDF Report
+        </button>
+    </a>
+
+    <br><br>
+   
     <a href="/">⬅ Analyze Another Resume</a>
 
 </div>
