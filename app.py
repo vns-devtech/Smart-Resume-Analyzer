@@ -1,3 +1,4 @@
+from analyzer.feedback import generate_feedback
 from analyzer.ats import calculate_ats_score
 from flask import Flask, render_template, request
 from analyzer.parser import extract_text
@@ -49,6 +50,12 @@ def analyze():
             role
         )
 
+        ai_feedback = generate_feedback(
+        score,
+        ats_score,
+        missing_skills
+        )
+
     except Exception as e:
 
         print(e)
@@ -63,6 +70,8 @@ def analyze():
         matched_skills = []
         missing_skills = []
 
+        ai_feedback = []
+
     return render_template(
         "dashboard.html",
         filename=file.filename,
@@ -72,7 +81,8 @@ def analyze():
         feedback=feedback,
         ats_score=ats_score,
         matched_skills=matched_skills,
-        missing_skills=missing_skills
+        missing_skills=missing_skills,
+        ai_feedback=ai_feedback
     )
 
 
