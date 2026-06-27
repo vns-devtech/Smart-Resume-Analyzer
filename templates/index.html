@@ -1,104 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
+{% block title %}
+Smart Resume Analyzer
+{% endblock %}
 
-    <meta charset="UTF-8">
+{% block content %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section class="hero">
 
-    <title>Smart Resume Analyzer</title>
+    <div class="hero-left">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+        <span class="tag">
+            🚀 AI Powered Resume Analysis
+        </span>
 
-</head>
+        <h1>
+            Analyze Your Resume Like a Professional
+        </h1>
 
-<body>
+        <p>
+            Upload your resume and instantly receive:
+        </p>
 
-<nav class="navbar">
+        <div class="features">
 
-    <div class="logo">
-        🚀 Smart Resume Analyzer
-    </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Resume Score</span>
+            </div>
 
-    <div class="nav-links">
+            <div class="feature-card">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>ATS Score</span>
+            </div>
 
-        <a href="/">Home</a>
+            <div class="feature-card">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI Feedback</span>
+            </div>
 
-        <a href="https://github.com" target="_blank">
-            GitHub
-        </a>
+            <div class="feature-card">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>PDF Report</span>
+            </div>
 
-    </div>
-
-</nav>
-
-<div class="container">
-
-    <h1>🚀 Smart Resume Analyzer</h1>
-
-    <p>
-        Upload your resume and receive AI-powered ATS analysis,
-        resume score, skill gap detection and personalized feedback.
-    </p>
-
-    <div class="upload-box">
-
-        <h2>Upload Resume</h2>
-
-        <form action="/analyze"
-              method="POST"
-              enctype="multipart/form-data">
-
-            <input
-                type="file"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                required>
-
-
-            <br><br>
-
-            <label><strong>Paste Job Description (Optional)</strong></label>
-
-            <br><br>
-
-            <textarea
-                name="job_description"
-                rows="10"
-                placeholder="Paste the job description here..."
-            ></textarea>
-            <br><br>
-
-            <select name="role" required>
-
-                <option value="">Select Job Role</option>
-
-                <option>AI Engineer</option>
-
-                <option>Web Developer</option>
-
-                <option>Data Analyst</option>
-
-                <option>Cloud Engineer</option>
-
-            </select>
-
-            <br><br>
-
-            <button type="submit">
-
-                Analyze Resume
-
-            </button>
-
-        </form>
+        </div>
 
     </div>
 
-</div>
+    <div class="hero-right">
 
-</body>
+        <div class="upload-card">
 
-</html>
+            <h2>Upload Resume</h2>
+
+            <form
+                action="/analyze"
+                method="POST"
+                enctype="multipart/form-data">
+
+                <label>Resume</label>
+
+                <input
+                    type="file"
+                    name="resume"
+                    required>
+
+                <label>Job Role</label>
+
+                <select name="role">
+
+                    <option>AI Engineer</option>
+
+                    <option>Web Developer</option>
+
+                    <option>Data Analyst</option>
+
+                    <option>Cloud Engineer</option>
+
+                </select>
+
+                <label>Job Description (Optional)</label>
+
+                <textarea
+                    name="job_description"
+                    rows="7"
+                    placeholder="Paste the Job Description here..."></textarea>
+
+                <button type="submit">
+
+                    Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-box">
+
+        <h2>98%</h2>
+
+        <p>ATS Accuracy</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h2>4</h2>
+
+        <p>Job Roles</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h2>PDF</h2>
+
+        <p>Download Reports</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <h2>AI</h2>
+
+        <p>Smart Feedback</p>
+
+    </div>
+
+</section>
+
+{% endblock %}

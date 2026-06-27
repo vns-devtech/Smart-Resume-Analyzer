@@ -1,242 +1,184 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
+{% block title %}
+Dashboard
+{% endblock %}
 
-    <meta charset="UTF-8">
+{% block css %}
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-    <title>Resume Analysis</title>
+<section class="dashboard">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+<div class="dashboard-header">
 
-</head>
+<h1>Resume Analysis Report</h1>
 
-<body>
-
-<nav class="navbar">
-
-    <div class="logo">
-        🚀 Smart Resume Analyzer
-    </div>
-
-    <div class="nav-links">
-
-        <a href="/">Home</a>
-
-        <a href="/download-report">
-            Download Report
-        </a>
-
-    </div>
-
-</nav>
-
-<div class="container">
-
-    <h1>🎉 Resume Analysis Complete</h1>
-
-    <br>
-
-    <!-- Resume Score -->
-
-    <div class="card">
-
-        <h2>Resume Score</h2>
-
-        <h1 style="color:#2d5bff;">
-            {{ score }}/100
-        </h1>
-
-    </div>
-
-    <br>
-
-    <!-- ATS Score -->
-
-    <div class="card">
-
-        <h2>ATS Score</h2>
-
-        <h1 style="color:green;">
-            {{ ats_score }}%
-        </h1>
-
-    </div>
-
-    <br>
-
-    <!-- File Information -->
-
-    <div class="card">
-
-        <h2>Uploaded File</h2>
-
-        <p>{{ filename }}</p>
-
-        <br>
-
-        <h2>Selected Role</h2>
-
-        <p>{{ role }}</p>
-
-        {% if job_description %}
-
-        <hr>
-
-        <h2>Job Description Used</h2>
-
-        <div class="resume-box">
-
-        <pre>{{ job_description }}</pre>
-
-        </div>
-
-        {% endif %}
-
-    </div>
-
-    <br>
-
-    <!-- Suggestions -->
-
-    <div class="card">
-
-        <h2>Suggestions</h2>
-
-        {% if feedback %}
-
-            {% for item in feedback %}
-
-                <div class="suggestion-item">
-
-                    ✅ {{ item }}
-
-                </div>
-
-            {% endfor %}
-
-        {% else %}
-
-            <div class="suggestion-item">
-
-                🎉 Excellent Resume! No Suggestions.
-
-            </div>
-
-        {% endif %}
-
-    </div>
-
-    <br>
-
-    <!-- Skills Section -->
-
-    <div class="skills-container">
-
-        <div class="skills-box">
-
-            <h2>✅ Matched Skills</h2>
-
-            {% if matched_skills %}
-
-                {% for skill in matched_skills %}
-
-                    <div class="skill matched">
-
-                        {{ skill }}
-
-                    </div>
-
-                {% endfor %}
-
-            {% else %}
-
-                <p>No Skills Matched.</p>
-
-            {% endif %}
-
-        </div>
-
-        <div class="skills-box">
-
-            <h2>❌ Missing Skills</h2>
-
-            {% if missing_skills %}
-
-                {% for skill in missing_skills %}
-
-                    <div class="skill missing">
-
-                        {{ skill }}
-
-                    </div>
-
-                {% endfor %}
-
-            {% else %}
-
-                <p>No Missing Skills.</p>
-
-            {% endif %}
-
-        </div>
-
-    </div>
-
-    <div class="card">
-
-        <h2>🤖 AI Feedback</h2>
-
-        {% for item in ai_feedback %}
-
-            <div class="suggestion-item">
-
-                💡 {{ item }}
-
-            </div>
-
-        {% endfor %}
-
-    </div>
-
-    <br>
-
-    <br>
-
-    <!-- Resume Text -->
-
-    <div class="card">
-
-        <h2>Extracted Resume Text</h2>
-
-        <div class="resume-box">
-
-<pre>{{ resume_text }}</pre>
-
-        </div>
-
-    </div>
-
-    <br>
-
-
-    <br><br>
-
-    <a href="/download-report">
-        <button type="button">
-            📥 Download PDF Report
-        </button>
-    </a>
-
-    <br><br>
-   
-    <a href="/">⬅ Analyze Another Resume</a>
+<p>Your resume has been analyzed successfully.</p>
 
 </div>
 
-</body>
+<!-- ================= SCORE CARDS ================= -->
 
-</html>
+<div class="score-grid">
+
+<div class="score-card">
+
+<h3>Resume Score</h3>
+
+<h1>{{ score }}%</h1>
+
+</div>
+
+<div class="score-card">
+
+<h3>ATS Score</h3>
+
+<h1>{{ ats_score }}%</h1>
+
+</div>
+
+<div class="score-card">
+
+<h3>Matched Skills</h3>
+
+<h1>{{ matched_skills|length }}</h1>
+
+</div>
+
+<div class="score-card">
+
+<h3>Missing Skills</h3>
+
+<h1>{{ missing_skills|length }}</h1>
+
+</div>
+
+</div>
+
+<!-- ================= FILE DETAILS ================= -->
+
+<div class="info-card">
+
+<h2>Resume Details</h2>
+
+<p><strong>File :</strong> {{ filename }}</p>
+
+<p><strong>Role :</strong> {{ role }}</p>
+
+</div>
+
+<!-- ================= AI FEEDBACK ================= -->
+
+<div class="info-card">
+
+<h2>AI Feedback</h2>
+
+<ul>
+
+{% for item in ai_feedback %}
+
+<li>{{ item }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<!-- ================= SKILLS ================= -->
+
+<div class="skills-grid">
+
+<div class="info-card">
+
+<h2>Matched Skills</h2>
+
+<div class="badges">
+
+{% for skill in matched_skills %}
+
+<span class="badge success">
+
+{{ skill }}
+
+</span>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="info-card">
+
+<h2>Missing Skills</h2>
+
+<div class="badges">
+
+{% for skill in missing_skills %}
+
+<span class="badge danger">
+
+{{ skill }}
+
+</span>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= RESUME ================= -->
+
+<div class="info-card">
+
+<h2>Resume Preview</h2>
+
+<div class="resume-box">
+
+<pre>
+
+{{ resume_text }}
+
+</pre>
+
+</div>
+
+</div>
+
+<!-- ================= BUTTONS ================= -->
+
+<div class="button-group">
+
+<a href="/download-report">
+
+<button>
+
+📥 Download Report
+
+</button>
+
+</a>
+
+<a href="/">
+
+<button class="secondary">
+
+Analyze Another Resume
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

@@ -1,251 +1,81 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ===========================
+   RESET
+=========================== */
+
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
 }
+
+
+/* ===========================
+   VARIABLES
+=========================== */
+
+:root{
+
+    --primary:#2563eb;
+
+    --secondary:#4f46e5;
+
+    --dark:#0f172a;
+
+    --light:#f8fafc;
+
+    --white:#ffffff;
+
+    --gray:#64748b;
+
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+
+/* ===========================
+   BODY
+=========================== */
 
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
+    background:#f8fafc;
 
-    background:#eef2f7;
+    color:#111827;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    min-height:100vh;
-}
-
-.container{
-
-    width:700px;
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:0px 15px 40px rgba(0,0,0,.15);
-
-    text-align:center;
-}
-
-h1{
-
-    color:#2d5bff;
-
-    margin-bottom:15px;
-}
-
-p{
-
-    color:#555;
-
-    margin-bottom:30px;
-}
-
-.upload-box{
-
-    border:2px dashed #2d5bff;
-
-    padding:35px;
-
-    border-radius:15px;
-}
-
-.upload-box h2{
-
-    margin-bottom:25px;
-}
-
-input[type=file]{
-
-    width:100%;
-}
-
-select{
-
-    width:100%;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    border:1px solid #ccc;
-
-    font-size:16px;
-}
-
-button{
-
-    background:#2d5bff;
-
-    color:white;
-
-    border:none;
-
-    padding:15px 30px;
-
-    border-radius:10px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-button:hover{
-
-    background:#143fd0;
-
-    transform:scale(1.05);
-}
-
-.card{
-
-    background:white;
-
-    padding:20px;
-
-    border-radius:12px;
-
-    box-shadow:0px 5px 15px rgba(0,0,0,.1);
+    overflow-x:hidden;
 
 }
 
-.suggestion-item{
 
-    background:#eef5ff;
+/* ===========================
+   LINKS
+=========================== */
 
-    padding:12px;
+a{
 
-    margin:10px 0;
-
-    border-left:5px solid #2d5bff;
-
-    border-radius:8px;
-
-    text-align:left;
-
-    font-size:16px;
-}
-
-.skills-container{
-
-    display:flex;
-
-    gap:20px;
-
-    justify-content:space-between;
+    text-decoration:none;
 
 }
 
-.skills-box{
 
-    width:48%;
-
-    background:white;
-
-    padding:20px;
-
-    border-radius:12px;
-
-    box-shadow:0px 5px 15px rgba(0,0,0,.1);
-
-}
-
-.skill{
-
-    margin:10px 0;
-
-    padding:10px;
-
-    border-radius:8px;
-
-    color:white;
-
-    font-weight:bold;
-
-}
-
-.matched{
-
-    background:#28a745;
-
-}
-
-.missing{
-
-    background:#dc3545;
-
-}
-
-.resume-box{
-
-    background:#f5f5f5;
-
-    padding:20px;
-
-    border-radius:10px;
-
-    max-height:500px;
-
-    overflow-y:auto;
-
-    text-align:left;
-
-}
-
-.resume-box pre{
-
-    white-space:pre-wrap;
-
-    font-size:15px;
-
-    font-family:Consolas, monospace;
-}
-
-textarea{
-
-    width:100%;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    border:1px solid #ccc;
-
-    resize:vertical;
-
-    font-size:15px;
-
-    margin-top:10px;
-}
-
-/* ==========================
+/* ===========================
    NAVBAR
-========================== */
+=========================== */
 
 .navbar{
-
-    width:100%;
-
-    background:#1e3a8a;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:18px 40px;
 
     position:fixed;
 
@@ -253,70 +83,565 @@ textarea{
 
     left:0;
 
-    z-index:1000;
+    width:100%;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    height:80px;
 
-}
+    background:rgba(255,255,255,.85);
 
-.logo{
-
-    font-size:24px;
-
-    font-weight:bold;
-
-}
-
-.nav-links{
+    backdrop-filter:blur(15px);
 
     display:flex;
 
-    gap:30px;
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 80px;
+
+    z-index:1000;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
 
 }
 
-.nav-links a{
 
-    color:white;
+.logo{
 
-    text-decoration:none;
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+
+.navbar ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+
+.navbar ul li a{
+
+    color:#1f2937;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+.navbar ul li a:hover{
+
+    color:var(--primary);
+
+}
+
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:140px 80px 80px;
+
+    background:linear-gradient(
+        135deg,
+        #eff6ff,
+        #ffffff
+    );
+
+}
+
+
+/* ===========================
+   LEFT SIDE
+=========================== */
+
+.hero-left{
+
+    width:48%;
+
+}
+
+
+.tag{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    background:#dbeafe;
+
+    color:var(--primary);
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero-left h1{
+
+    font-size:58px;
+
+    line-height:1.15;
+
+    color:#111827;
+
+}
+
+
+.hero-left p{
+
+    margin-top:25px;
 
     font-size:18px;
 
+    color:#6b7280;
+
+    line-height:1.8;
+
+}
+
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.hero-right{
+
+    width:45%;
+
+}
+
+/* ===========================
+   UPLOAD CARD
+=========================== */
+
+.upload-card{
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+
+    transition:.4s;
+
+}
+
+.upload-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.upload-card h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:var(--dark);
+
+    font-size:30px;
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.upload-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.upload-card label{
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input[type=file],
+select,
+textarea{
+
+    width:100%;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:#f9fafb;
+
     transition:.3s;
 
 }
 
-.nav-links a:hover{
+input[type=file]:focus,
+select:focus,
+textarea:focus{
 
-    color:#ffd700;
+    border-color:var(--primary);
 
-}
-
-
-/* ==========================
-   CONTAINER
-========================== */
-
-.container{
-
-    margin-top:100px;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
 
 }
 
+textarea{
 
-/* ==========================
+    resize:vertical;
+
+    min-height:150px;
+
+}
+
+/* ===========================
    BUTTON
-========================== */
+=========================== */
 
 button{
 
-    transition:.3s;
+    margin-top:10px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
 
 }
 
 button:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.30);
+
+}
+
+/* ===========================
+   FEATURES
+=========================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:40px;
+
+}
+
+.feature-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.feature-card i{
+
+    font-size:28px;
+
+    color:var(--primary);
+
+}
+
+.feature-card span{
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ===========================
+   STATS SECTION
+=========================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    padding:70px 80px;
+
+    background:#ffffff;
+
+}
+
+.stat-box{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.stat-box:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-box h2{
+
+    font-size:40px;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.stat-box p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:50px;
+
+}
+
+footer p{
+
+    opacity:.8;
+
+}
+
+
+/* ===========================
+   HERO BACKGROUND EFFECT
+=========================== */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    background:rgba(37,99,235,.08);
+
+    border-radius:50%;
+
+    top:-180px;
+
+    right:-120px;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:rgba(79,70,229,.08);
+
+    border-radius:50%;
+
+    bottom:-120px;
+
+    left:-100px;
+
+}
+
+
+/* ===========================
+   SIMPLE FADE ANIMATION
+=========================== */
+
+.hero-left,
+.hero-right{
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ===========================
+   CARD ANIMATION
+=========================== */
+
+.feature-card,
+.stat-box,
+.upload-card{
+
+    animation:fadeCard .8s ease;
+
+}
+
+@keyframes fadeCard{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
 
 }
