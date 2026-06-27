@@ -1,14 +1,16 @@
+from analyzer.ats import calculate_ats_score
 from flask import Flask, render_template, request
 from analyzer.parser import extract_text
+from analyzer.score import calculate_resume_score
 import os
 
 app = Flask(__name__)
 
-# Upload folder
+# Upload Folder
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Create uploads folder if it doesn't exist
+# Create Upload Folder if it doesn't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
@@ -20,73 +22,58 @@ def home():
 @app.route("/analyze", methods=["POST"])
 def analyze():
 
-    # Check if file is uploaded
     if "resume" not in request.files:
-        return "No file uploaded."
+        return "No Resume Uploaded."
 
     file = request.files["resume"]
 
     if file.filename == "":
-        return "No file selected."
+        return "No File Selected."
 
-    role = request.form.get("role", "Not Selected")
+    role = request.form.get("role")
 
     # Save uploaded file
     filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
     file.save(filepath)
 
-    # Debug Information
-    print("=" * 60)
-    print("FILE PATH :", filepath)
-    print("FILE EXISTS :", os.path.exists(filepath))
-    print("FILE EXTENSION :", os.path.splitext(filepath)[1])
-
     try:
+
+        # Extract Resume Text
         resume_text = extract_text(filepath)
+
+        # Calculate Resume Score
+        score, feedback = calculate_resume_score(resume_text)
+
+        ats_score, matched_skills, missing_skills = calculate_ats_score(
+            resume_text,
+            role
+        )
+
     except Exception as e:
+
+        print(e)
+
         resume_text = ""
-        print("ERROR :", e)
 
-    print("TEXT TYPE :", type(resume_text))
-    print("TEXT LENGTH :", len(resume_text))
+        score = 0
 
-    if resume_text:
-        print("FIRST 500 CHARACTERS :")
-        print(resume_text[:500])
-    else:
-        print("NO TEXT EXTRACTED!")
+        feedback = ["Unable to analyze resume."]
 
-    print("=" * 60)
+        ats_score = 0
+        matched_skills = []
+        missing_skills = []
 
-    return f"""
-    <h1>Resume Uploaded Successfully 🎉</h1>
-
-    <hr>
-
-    <h2>File Name:</h2>
-    <p>{file.filename}</p>
-
-    <h2>Selected Role:</h2>
-    <p>{role}</p>
-
-    <hr>
-
-    <h2>Extracted Resume Text</h2>
-
-    <pre style="
-        white-space: pre-wrap;
-        font-size:16px;
-        background:#f5f5f5;
-        padding:20px;
-        border-radius:10px;
-    ">
-{resume_text}
-    </pre>
-
-    <br>
-
-    <a href="/">⬅ Upload Another Resume</a>
-    """
+    return render_template(
+        "dashboard.html",
+        filename=file.filename,
+        role=role,
+        resume_text=resume_text,
+        score=score,
+        feedback=feedback,
+        ats_score=ats_score,
+        matched_skills=matched_skills,
+        missing_skills=missing_skills
+    )
 
 
 if __name__ == "__main__":

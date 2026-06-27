@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎉 Resume Analysis Complete</h1>
+
+    <br>
+
+    <!-- Resume Score -->
+
+    <div class="card">
+
+        <h2>Resume Score</h2>
+
+        <h1 style="color:#2d5bff;">
+            {{ score }}/100
+        </h1>
+
+    </div>
+
+    <br>
+
+    <!-- ATS Score -->
+
+    <div class="card">
+
+        <h2>ATS Score</h2>
+
+        <h1 style="color:green;">
+            {{ ats_score }}%
+        </h1>
+
+    </div>
+
+    <br>
+
+    <!-- File Information -->
+
+    <div class="card">
+
+        <h2>Uploaded File</h2>
+
+        <p>{{ filename }}</p>
+
+        <br>
+
+        <h2>Selected Role</h2>
+
+        <p>{{ role }}</p>
+
+    </div>
+
+    <br>
+
+    <!-- Suggestions -->
+
+    <div class="card">
+
+        <h2>Suggestions</h2>
+
+        {% if feedback %}
+
+            {% for item in feedback %}
+
+                <div class="suggestion-item">
+
+                    ✅ {{ item }}
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="suggestion-item">
+
+                🎉 Excellent Resume! No Suggestions.
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <!-- Skills Section -->
+
+    <div class="skills-container">
+
+        <div class="skills-box">
+
+            <h2>✅ Matched Skills</h2>
+
+            {% if matched_skills %}
+
+                {% for skill in matched_skills %}
+
+                    <div class="skill matched">
+
+                        {{ skill }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No Skills Matched.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="skills-box">
+
+            <h2>❌ Missing Skills</h2>
+
+            {% if missing_skills %}
+
+                {% for skill in missing_skills %}
+
+                    <div class="skill missing">
+
+                        {{ skill }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No Missing Skills.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- Resume Text -->
+
+    <div class="card">
+
+        <h2>Extracted Resume Text</h2>
+
+        <div class="resume-box">
+
+<pre>{{ resume_text }}</pre>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="/">⬅ Analyze Another Resume</a>
+
+</div>
+
+</body>
+
+</html>
