@@ -7,6 +7,7 @@ from analyzer.feedback import generate_feedback
 from analyzer.pdf_report import generate_pdf_report
 import os
 
+
 app = Flask(__name__)
 
 # Upload Folder
