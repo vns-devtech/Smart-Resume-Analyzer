@@ -9,12 +9,16 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>
+
         {% block title %}
+
         Smart Resume Analyzer
+
         {% endblock %}
+
     </title>
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -29,14 +33,12 @@
     <!-- Font Awesome -->
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- Main CSS -->
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     {% block css %}
 
@@ -46,109 +48,238 @@
 
 <body>
 
+
 <!-- ================= NAVBAR ================= -->
 
-<ul>
+<header class="navbar">
 
-    <li>
-        <a href="#home">Home</a>
-    </li>
+    <div class="container nav-container">
 
-    <li>
-        <a href="#features">Features</a>
-    </li>
+        <a href="/" class="logo">
 
-    <li>
-        <a href="#about">About</a>
-    </li>
+            <i class="fa-solid fa-rocket"></i>
 
-    <li>
-        <a href="https://github.com/vns-devtech" target="_blank">
+            <span>
+
+                Smart Resume Analyzer
+
+            </span>
 
         </a>
-    </li>
 
-</ul>
+        <nav>
 
+            <ul class="nav-links">
 
-<nav class="navbar">
+                <li>
 
-    <div class="logo">
+                    <a href="/">Home</a>
 
-        <i class="fa-solid fa-rocket"></i>
+                </li>
 
-        <span>
+                <li>
 
-            Smart Resume Analyzer
+                    <a href="#features">
 
-        </span>
+                        Features
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#developer">
+
+                        Developer
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="https://github.com/vns-devtech"
+                       target="_blank">
+
+                        <i class="fa-brands fa-github"></i>
+
+                        GitHub
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
 
     </div>
 
-    <ul>
+</header>
 
-        <li>
+<main>
 
-            <a href="/">
+    {% block content %}
 
-                Home
+    {% endblock %}
 
-            </a>
+</main>
+<!-- ================= CONTACT / FOOTER ================= -->
 
-        </li>
+<footer id="contact" class="footer">
 
-        <li>
+    <div class="container footer-container">
 
-            <a href="#features">
+        <!-- Left -->
 
-                Features
+        <div class="footer-about">
 
-            </a>
+            <h2>
 
-        </li>
+                🚀 Smart Resume Analyzer
 
-        <li>
+            </h2>
 
-            <a href="#about">
+            <p>
 
-                About
+                AI-powered Resume Analysis platform that evaluates resumes,
+                calculates ATS compatibility, identifies missing skills,
+                and generates professional reports.
 
-            </a>
+            </p>
 
-        </li>
+        </div>
 
-        <li>
+        <!-- Quick Links -->
 
-            <a href="https://github.com/vns-devtech"
-               target="_blank">
+        <div class="footer-links">
 
-                GitHub
+            <h3>
 
-            </a>
+                Quick Links
 
-        </li>
+            </h3>
 
-    </ul>
+            <ul>
 
-</nav>
+                <li>
 
-<!-- ================= MAIN ================= -->
+                    <a href="/">Home</a>
 
-{% block content %}
+                </li>
 
-{% endblock %}
+                <li>
 
-<!-- ================= FOOTER ================= -->
+                    <a href="#features">
 
-<footer>
+                        Features
 
-    <p>
+                    </a>
 
-        © 2026 Smart Resume Analyzer
+                </li>
 
-    </p>
+                <li>
+
+                    <a href="#developer">
+
+                        Developer
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="https://github.com/vns-devtech"
+                       target="_blank">
+
+                        GitHub
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div class="footer-contact">
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+            <p>
+
+                📍 Ghaziabad, India
+
+            </p>
+
+            <p>
+
+                📧 - vns.devtech@gmail.com
+
+            </p>
+
+            <div class="social-icons">
+
+                <a href="https://github.com/vns-devtech"
+                   target="_blank">
+
+                    <i class="fab fa-github"></i>
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/vns-devtech/">
+
+                    <i class="fab fa-linkedin"></i>
+
+                </a>
+
+                <a href="mailto:vns.devtech@gmail.com">
+
+                    <i class="fas fa-envelope"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 Smart Resume Analyzer • Designed & Developed by <strong>Vansh Bhardwaj</strong>
+
+        </p>
+
+    </div>
 
 </footer>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Page Specific JS -->
 
 {% block scripts %}
 
