@@ -575,3 +575,55 @@ body{
     }
 
 }
+
+canvas{
+
+    width:220px !important;
+
+    height:220px !important;
+
+    margin:auto;
+
+    display:block;
+}
+
+.score-card h2{
+
+    margin-top:15px;
+
+    color:#2563eb;
+
+    font-size:32px;
+
+}
+
+/* Individual Card Colors */
+
+.score-card:nth-child(1){
+    border-top:6px solid #2563eb;
+}
+
+.score-card:nth-child(2){
+    border-top:6px solid #10b981;
+}
+
+.score-card:nth-child(3){
+    border-top:6px solid #8b5cf6;
+}
+
+.score-card:nth-child(4){
+    border-top:6px solid #ef4444;
+}
+
+/* Chart Container */
+
+.score-card canvas{
+
+    width:220px !important;
+
+    height:220px !important;
+
+    margin:20px auto;
+
+}
+

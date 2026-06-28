@@ -6,7 +6,7 @@ Smart Resume Analyzer
 
 {% block content %}
 
-<section class="hero">
+<section class="hero" id="home">
 
     <div class="hero-left">
 
@@ -101,7 +101,7 @@ Smart Resume Analyzer
 
 </section>
 
-<section class="stats">
+<section class="stats" id="features">
 
     <div class="stat-box">
 
@@ -136,5 +136,128 @@ Smart Resume Analyzer
     </div>
 
 </section>
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <h2>About This Project</h2>
+
+        <p>
+
+            Smart Resume Analyzer is an AI-powered web application
+            that analyzes resumes, calculates ATS compatibility,
+            identifies missing skills, provides personalized feedback,
+            and generates downloadable PDF reports.
+
+        </p>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3>🚀 AI Resume Analysis</h3>
+
+                <p>
+                    Extracts resume text and analyzes important
+                    information using Python.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>🎯 ATS Matching</h3>
+
+                <p>
+                    Compares resumes with job-specific skills
+                    and calculates ATS compatibility.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>📄 PDF Report</h3>
+
+                <p>
+                    Generates a professional downloadable
+                    analysis report.
+                </p>
+
+            </div>
+
+            <div class="about-card">
+
+                <h3>💻 Built With</h3>
+
+                <p>
+
+                    Flask • Python • HTML • CSS • JavaScript • Chart.js
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <div class="about-left">
+
+            <div class="profile-image">
+
+                <img src="{{ url_for('static', filename='images/profile.png') }}"
+                     alt="Vansh Bhardwaj">
+
+            </div>
+
+        </div>
+
+        <div class="about-right">
+
+            <span class="section-tag">
+
+                👨‍💻 Meet the Developer
+
+            </span>
+
+            <h2>
+
+                Vansh Bhardwaj
+
+            </h2>
+
+            <h3>
+
+                AI & Machine Learning Developer
+
+            </h3>
+
+            <p>
+
+                Passionate about Artificial Intelligence,
+                Machine Learning, Full Stack Development,
+                and building real-world software solutions.
+
+                I enjoy creating modern web applications
+                that solve practical problems.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 {% endblock %}

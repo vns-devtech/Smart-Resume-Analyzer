@@ -27,23 +27,33 @@ href="{{ url_for('static', filename='css/dashboard.css') }}">
 
 <div class="score-card">
 
-<h3>Resume Score</h3>
+<h3>📊 Resume Score</h3>
 
-<h1>{{ score }}%</h1>
+<canvas
+id="resumeChart"
+data-score="{{ score }}">
+</canvas>
 
-</div>
-
-<div class="score-card">
-
-<h3>ATS Score</h3>
-
-<h1>{{ ats_score }}%</h1>
+<h2>{{ score }}%</h2>
 
 </div>
 
 <div class="score-card">
 
-<h3>Matched Skills</h3>
+<h3>🎯 ATS Score</h3>
+
+<canvas
+id="atsChart"
+data-score="{{ ats_score }}">
+</canvas>
+
+<h2>{{ ats_score }}%</h2>
+
+</div>
+
+<div class="score-card">
+
+<h3>✅ Matched Skills</h3>
 
 <h1>{{ matched_skills|length }}</h1>
 
@@ -51,7 +61,7 @@ href="{{ url_for('static', filename='css/dashboard.css') }}">
 
 <div class="score-card">
 
-<h3>Missing Skills</h3>
+<h3>❌ Missing Skills</h3>
 
 <h1>{{ missing_skills|length }}</h1>
 
@@ -180,5 +190,12 @@ Analyze Another Resume
 </div>
 
 </section>
+
+{% block scripts %}
+
+<script src="{{ url_for('static',
+filename='js/dashboard.js') }}"></script>
+
+{% endblock %}
 
 {% endblock %}
