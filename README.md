@@ -1,4 +1,4 @@
-```markdown
+
 # 🚀 Smart Resume Analyzer
 
 <p align="center">
@@ -69,29 +69,9 @@ The application extracts resume content, calculates Resume Score, ATS Score, ide
 
 ## 🔗 Website
 
-YOUR_RENDER_LINK
+(https://smart-resume-analyzer-bez5.onrender.com/)
 
----
 
-# 📷 Screenshots
-
-## Home Page
-
-(Add Screenshot Here)
-
----
-
-## Dashboard
-
-(Add Screenshot Here)
-
----
-
-## PDF Report
-
-(Add Screenshot Here)
-
----
 
 # 📂 Project Structure
 
@@ -154,7 +134,7 @@ https://github.com/vns-devtech
 
 LinkedIn
 
-(Add your LinkedIn URL)
+[(Add your LinkedIn URL)](https://www.linkedin.com/in/vns-devtech/)
 
 ---
 
