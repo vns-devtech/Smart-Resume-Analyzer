@@ -9,16 +9,19 @@ An AI-powered Resume Analyzer built with **Python**, **Flask**, and **Machine Le
 
 <p align="center">
 
-<a href="(https://smart-resume-analyzer-bez5.onrender.com/)">
+<a href="https://smart-resume-analyzer-bez5.onrender.com" target="_blank">
+
 <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Website-blue?style=for-the-badge">
+
 </a>
 
-<a href="https://github.com/vns-devtech">
+<a href="https://github.com/vns-devtech/Smart-Resume-Analyzer" target="_blank">
+
 <img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github">
+
 </a>
 
 </p>
-
 ---
 
 # 📖 About
