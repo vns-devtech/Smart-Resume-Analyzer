@@ -76,11 +76,6 @@ The application extracts resume content, calculates Resume Score, ATS Score, ide
 
 
 
-# 📂 Project Structure
-
-```
-````
-
 ---
 
 # ⚙ Installation
