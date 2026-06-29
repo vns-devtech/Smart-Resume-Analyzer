@@ -96,33 +96,6 @@ YOUR_RENDER_LINK
 # 📂 Project Structure
 
 ```
-
-Smart-Resume-Analyzer
-│
-├── analyzer
-│   ├── ats.py
-│   ├── parser.py
-│   ├── feedback.py
-│   ├── score.py
-│   └── pdf_report.py
-│
-├── static
-│   ├── css
-│   ├── images
-│   └── js
-│
-├── templates
-│
-├── uploads
-│
-├── reports
-│
-├── app.py
-│
-├── requirements.txt
-│
-└── Procfile
-
 ````
 
 ---
