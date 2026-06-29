@@ -132,7 +132,7 @@ https://github.com/vns-devtech
 
 LinkedIn
 
-[(Add your LinkedIn URL)](https://www.linkedin.com/in/vns-devtech/)
+[https://www.linkedin.com/in/vns-devtech]
 
 ---
 
@@ -144,5 +144,3 @@ If you like this project,
 
 It motivates me to build more awesome projects.
 
-```
-```
