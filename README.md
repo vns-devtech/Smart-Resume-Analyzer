@@ -9,11 +9,11 @@ An AI-powered Resume Analyzer built with **Python**, **Flask**, and **Machine Le
 
 <p align="center">
 
-<a href="YOUR_RENDER_LINK">
+<a href="(https://smart-resume-analyzer-bez5.onrender.com/)">
 <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Website-blue?style=for-the-badge">
 </a>
 
-<a href="https://github.com/vns-devtech/Smart-Resume-Analyzer">
+<a href="https://github.com/vns-devtech">
 <img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github">
 </a>
 
